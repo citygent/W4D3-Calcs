@@ -49,5 +49,35 @@ post '/Mortgage' do
   # binding.pry
   @title = 'Mortgage'
   erb :Mortgage
-
 end
+
+post '/BMI' do
+  @weight = params[:mass].to_f
+  @height = params[:height].to_f
+  case params[:units]
+  when 'imperial' then (@answer = @weight / (@height*@height) * 703).round(2)
+  when 'metric' then @answer = (@weight / @height**2).round(2)
+  else 
+    @answer = 'your mum'
+  end
+  @title = 'BMI'
+  erb :BMI
+end
+
+post '/Trip' do 
+  @distance = params[:distance].to_f
+  @mpg = params[:mpg].to_f
+  @cost = params[:cost].to_f
+  @speed = params[:speed].to_f
+
+  @time = (@distance / @speed).round(2)
+  @realMPG = @speed > 60 ? [0, @mpg - (@speed - 60) * 2].max : @mpg
+  @realCost = (@distance / @realMPG * @cost).round(2)
+
+  @title = 'Trip'
+  erb :Trip
+end
+
+
+
+

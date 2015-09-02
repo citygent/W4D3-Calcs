@@ -1,1 +1,18 @@
 <h1> <%= @title %> </h1>
+
+<form action="/BMI" method="post">
+  
+  Mass(kg/pounds):<input type="float" name="mass">
+  Height(meters/inches):<input type="float" name="height">
+  <select name="units" id="units">
+    <option value="metric">metric</option>
+    <option value="imperial">imperial</option>
+  </select>
+
+  <button>Calc It!</button>
+
+  <% if @answer %>
+    <h2><%= @answer %></h2>
+  <% end %>
+
+</form>

@@ -1,1 +1,15 @@
 <h1> <%= @title %> </h1>
+
+<form action="/Trip" method="post">
+  Distance<input type="float" name="distance">
+  MPG<input type="float" name="mpg">
+  Cost(£/Gallon)<input type="float" name="cost">
+  Speed(MPH)<input type="float" name="speed">
+
+  <button>Calc It!</button>
+
+  <% if @time && @realMPG %>
+    <h2>Your trip will take <%= @time %> hours and cost £<%= @realCost %></h2>
+  <% end %>
+
+</form>
