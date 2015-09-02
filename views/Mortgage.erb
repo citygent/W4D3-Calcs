@@ -1,1 +1,15 @@
 <h1> <%= @title %> </h1>
+
+<form action="/Mortgage" method="post">
+  
+  Loan(£):<input type="number" name="loan">
+  APR(%):<input type="number" name="apr">
+  Term(months):<input type="number" name="term">
+
+  <button>Calc It!</button>
+
+  <% if @answer %>
+    <h2><%= @answer %></h2>
+  <% end %>
+
+</form>

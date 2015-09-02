@@ -39,3 +39,15 @@ post '/Basic' do
   @title = 'Basic'
   erb :Basic
 end
+
+post '/Mortgage' do 
+  @loan = params[:loan].to_f
+  @apr = ((params[:apr].to_f) / 100) / 12
+  @term = params[:term].to_f
+  @memo = (1 + @apr)**@term
+  @answer = (@loan * @apr * (@memo / (@memo - 1))).round(2)
+  # binding.pry
+  @title = 'Mortgage'
+  erb :Mortgage
+
+end
