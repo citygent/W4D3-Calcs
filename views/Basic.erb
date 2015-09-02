@@ -1,1 +1,22 @@
 <h1> <%= @title %> </h1>
+
+<form action="/Basic" method="post">
+  
+  <input type="number" name="num1">
+
+  <select name="operator">
+    <option value="plus">+</option>
+    <option value="minus">-</option>
+    <option value="multiply">*</option>
+    <option value="divide">/</option>
+  </select>
+
+  <input type="number" name="num2">
+
+  <button>Calc It!</button>
+
+  <% if @answer %>
+    <h2><%= @answer %></h2>
+  <% end %>
+
+</form>
